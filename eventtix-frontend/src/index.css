@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* TIXEL Brand Palette */
+  --primary: #e11d48; /* Rose 600 */
+  --primary-hover: #be123c; /* Rose 700 */
+  --bg-dark: #09090b; /* Zinc 950 - Deepest black */
+  --bg-card: #18181b; /* Zinc 900 */
+  --text-light: #fafafa;
+  --text-muted: #a1a1aa;
+  --accent: #f43f5e; /* Rose 500 */
+  
+  /* Semantic Seat Colors */
+  --seat-available: #27272a; /* Zinc 800 */
+  --seat-booked: #3f3f46; /* Zinc 700 - disabled look */
+  --seat-selected: #e11d48; /* Brand color */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.admin-container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 800;
+  letter-spacing: -0.04em; /* Tight letter spacing for modern brand look */
+}
+
+.brand-logo {
+  font-weight: 800;
+  font-size: 2rem;
+  letter-spacing: -0.05em;
+  color: white;
+  text-transform: uppercase;
+}
+.brand-logo span {
+  color: var(--primary);
+}
+
+/* Minimalist Card */
+.card {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1.5rem; /* Rounder corners for modern feel */
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(225, 29, 72, 0.3); /* Subtle brand color border on hover */
+}
+
+.btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 2rem; /* Pill shaped buttons */
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(225, 29, 72, 0.4);
+}
+
+.btn:hover {
+  background: var(--primary-hover);
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(225, 29, 72, 0.6);
+}
+
+.btn:disabled {
+  background: var(--bg-card);
+  color: var(--text-muted);
+  box-shadow: none;
+  border: 1px solid rgba(255,255,255,0.1);
+  transform: none;
+  cursor: not-allowed;
+}
+
+/* Seat Map Grid */
+.seat-map-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.stage {
+  width: 80%;
+  height: 60px;
+  background: linear-gradient(to bottom, rgba(225, 29, 72, 0.1), transparent);
+  border-top: 3px solid var(--primary);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  text-align: center;
+  line-height: 60px;
+  color: var(--primary);
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  margin-bottom: 2rem;
+}
+
+.seat-row {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.seat {
+  width: 32px;
+  height: 32px;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.seat.available {
+  background-color: var(--seat-available);
+}
+
+.seat.available:hover {
+  border-color: var(--primary);
+  background-color: rgba(225, 29, 72, 0.1);
+}
+
+.seat.booked {
+  background-color: var(--seat-booked);
+  color: rgba(255,255,255,0.2);
+  cursor: not-allowed;
+  border: none;
+}
+
+.seat.selected {
+  background-color: var(--seat-selected);
+  color: white;
+  border-color: var(--primary);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(225, 29, 72, 0.5);
+}
+
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--bg-card);
+  color: white;
+  padding: 1.2rem 2rem;
+  border-radius: 1rem;
+  border-left: 4px solid var(--primary);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  font-weight: 600;
+  animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.admin-nav-item:hover {
+  background: rgba(255,255,255,0.05);
+  color: white !important;
+}
+.admin-nav-item.active {
+  background: rgba(225, 29, 72, 0.15);
+  color: var(--primary) !important;
+  border-right: 3px solid var(--primary);
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}

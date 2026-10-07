@@ -1,0 +1,19 @@
+# Maven
+eventtix-backend/target/
+
+# Node
+eventtix-frontend/node_modules/
+eventtix-frontend/dist/
+
+# Environment / secrets
+.env
+*.env
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
